@@ -17,6 +17,9 @@ public class MyString {
     }
 
     public static String lowerCase(String str) {
+        if (str == null) {
+            return null;
+        }
         String newStr = "";
         char ch;
         for (int i = 0 ; i < str.length() ; i ++){
@@ -31,7 +34,6 @@ public class MyString {
         return newStr;
     }
  
-    /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
         int len2 = str2.length();
         boolean contains = false;

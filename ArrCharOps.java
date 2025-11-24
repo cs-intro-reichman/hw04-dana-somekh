@@ -32,7 +32,12 @@ public class ArrCharOps {
 
  
     public static char charAt(char[] arr, int index) {
+        if (index < 0 || index >= arr.length) {
+        return '\0';
+        }
+        else{
         return arr[index];
+         }
     }
 
 
@@ -103,20 +108,13 @@ public class ArrCharOps {
         int n = arr.length;
         long hash = 0;
         for (int i = 0 ; i < n ; i++){
-            hash =  hash +  arr[i] * (long)Math.pow(7, (n-(1 + i)));
+            hash =  hash * 7 + arr[i];
         }
         return hash;
     }
 
 
     public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return -2;
-        }
-        if (str1.length() == 0 || str2.length() == 0) {
-            return -2;
-        }
-
         int len = Math.min(str1.length(), str2.length());
 
         for (int i = 0; i < len ; i++){
