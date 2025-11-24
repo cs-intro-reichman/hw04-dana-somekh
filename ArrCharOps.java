@@ -1,26 +1,26 @@
 public class ArrCharOps {
-    public static void main(String[] args) {
-        String str = "clearly";
-        char[] arr1 = {'c','l','e','a','r','l','y'};
-        char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
-        System.out.println(str);  // Prints the string
-        println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,2));      
-        System.out.println(indexOf(arr1,'l'));  
-        System.out.println(indexOf(arr1,'l',3)); 
-        System.out.println(lastIndexOf(arr1, 'l'));
-        System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 2, 9));
-        System.out.println(compareTo("abcd", "abcd"));
-        System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("abw", "abcd"));
-        System.out.println(compareTo("Abcd", "a"));
-        System.out.println(compareTo("apple", "banana"));
-        System.out.println(compareTo("apple", "applepie"));
-        System.out.println(compareTo("Zoo", "zoo"));
-        System.out.println(hashCode(arr1));
-        System.out.println(hashCode(arr2));
-    }
+    // public static void main(String[] args) {
+    //     String str = "clearly";
+    //     char[] arr1 = {'c','l','e','a','r','l','y'};
+    //     char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
+    //     System.out.println(str);  // Prints the string
+    //     println(arr1);            // Prints an array of characters
+    //     System.out.println(charAt(arr1,2));      
+    //     System.out.println(indexOf(arr1,'l'));  
+    //     System.out.println(indexOf(arr1,'l',3)); 
+    //     System.out.println(lastIndexOf(arr1, 'l'));
+    //     System.out.println(concat(arr1, arr2));
+    //     System.out.println(subArray(arr2, 2, 9));
+    //     System.out.println(compareTo("abcd", "abcd"));
+    //     System.out.println(compareTo("abc", "abcd"));
+    //     System.out.println(compareTo("abw", "abcd"));
+    //     System.out.println(compareTo("Abcd", "a"));
+    //     System.out.println(compareTo("apple", "banana"));
+    //     System.out.println(compareTo("apple", "applepie"));
+    //     System.out.println(compareTo("Zoo", "zoo"));
+    //     System.out.println(hashCode(arr1));
+    //     System.out.println(hashCode(arr2));
+    // }
 
 
     public static void println(char[] arr) {
@@ -32,12 +32,7 @@ public class ArrCharOps {
 
  
     public static char charAt(char[] arr, int index) {
-        if (index < 0 || index >= arr.length) {
-        return '\0';
-        }
-        else{
         return arr[index];
-         }
     }
 
 
@@ -108,7 +103,7 @@ public class ArrCharOps {
         int n = arr.length;
         long hash = 0;
         for (int i = 0 ; i < n ; i++){
-            hash =  hash * 7 + arr[i];
+            hash =  hash + arr[i] * (long)Math.pow(7, n - 1 - i);
         }
         return hash;
     }

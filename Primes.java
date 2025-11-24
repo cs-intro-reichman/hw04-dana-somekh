@@ -1,9 +1,10 @@
 public class Primes {
     public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
         if (args.length == 0) {
+            n = 7;
             return;
         }
-        int n = Integer.parseInt(args[0]);
         boolean[] isPrime = new boolean[n+1]; 
         for (int i = 2 ; i <= n ; i++){
             isPrime[i] = true;

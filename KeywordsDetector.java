@@ -31,7 +31,7 @@ public class KeywordsDetector {
                 }               
             }
             if (isBullshit[i]){
-            System.out.println(sentences[i]);
+            System.out.println(sentences[i].trim());
             }
         }
         }

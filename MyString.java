@@ -18,7 +18,7 @@ public class MyString {
 
     public static String lowerCase(String str) {
         if (str == null) {
-            return null;
+            return "null";
         }
         String newStr = "";
         char ch;
