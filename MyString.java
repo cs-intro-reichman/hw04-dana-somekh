@@ -17,10 +17,10 @@ public class MyString {
     }
 
     public static String lowerCase(String str) {
-        if (str == null) {
-            return "null";
-        }
         String newStr = "";
+        if (str == null) {
+            return newStr;
+        }
         char ch;
         for (int i = 0 ; i < str.length() ; i ++){
             ch = str.charAt(i);

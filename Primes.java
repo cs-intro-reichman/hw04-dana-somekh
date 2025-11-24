@@ -1,10 +1,11 @@
 public class Primes {
     public static void main(String[] args) {
-        int n = Integer.parseInt(args[0]);
+        int n;
         if (args.length == 0) {
             n = 7;
             return;
         }
+        n = Integer.parseInt(args[0]);
         boolean[] isPrime = new boolean[n+1]; 
         for (int i = 2 ; i <= n ; i++){
             isPrime[i] = true;
@@ -33,8 +34,7 @@ public class Primes {
             }
         }
         
-        double perc = (cnt* 100.00) /n;
-
-        System.out.println("There are " + cnt + " primes between 2 and "+ n + " (" + (int) perc + "% are primes)");
+        int perc = (cnt* 100) /n;
+        System.out.println("There are " + cnt + " primes between 2 and "+ n + " (" + perc + "% are primes)");
         }
     }
