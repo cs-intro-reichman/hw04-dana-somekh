@@ -32,6 +32,9 @@ public class ArrCharOps {
 
  
     public static char charAt(char[] arr, int index) {
+        if (index < 0 || index >= arr.length) {
+        throw new IndexOutOfBoundsException("Index " + index + " is out of bounds for length " + arr.length);
+        }
         return arr[index];
     }
 
@@ -91,6 +94,9 @@ public class ArrCharOps {
 
   
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
+        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
+        throw new IndexOutOfBoundsException("Invalid: beginIndex=" + beginIndex + ", endIndex=" + endIndex);
+        }
         char[] subArry = new char[endIndex - beginIndex];
         for (int i = beginIndex; i < endIndex; i++){
             subArry[i - beginIndex] = charAt(arr, i);
@@ -103,32 +109,43 @@ public class ArrCharOps {
         int n = arr.length;
         long hash = 0;
         for (int i = 0 ; i < n ; i++){
-            hash =  hash + arr[i] * (long)Math.pow(7, n - 1 - i);
+            hash =  7 * hash + arr[i];
         }
         return hash;
     }
 
 
     public static int compareTo(String str1, String str2) {
-        int len = Math.min(str1.length(), str2.length());
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int lim = Math.min(len1, len2);
 
-        for (int i = 0; i < len ; i++){
-            if (str1.charAt(i) > str2.charAt(i)){
-                return 1;
-            }
-            if (str1.charAt(i) < str2.charAt(i)){
-                return -1;
+        for (int i = 0; i < lim ; i++){
+            char c1 = str1.charAt(i);
+            char c2 = str2.charAt(i);
+            if (c1 != c2) {
+                int diff = c1 - c2;
+                if (diff > 0) {
+                    return 1;
+                }
+                else {
+                    return -1;
+                }
             } 
         }
-        
-        if (str1.length() > str2.length()) {
-                return 1;
-            }
-        if (str1.length() < str2.length()){
-                return -1;
-            }
-
-            return 0;
+    
+        int lenDiff = len1 - len2;
+        if (lenDiff > 0) {
+            return 1;
         }
+        else {
+            if (lenDiff < 0){
+            return -1;
+            }   
+            else {
+            return 0;
+            }
+        }
+    }
     }
 
