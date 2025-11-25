@@ -113,31 +113,30 @@ public class ArrCharOps {
         return hash;
     }
 
-
     public static int compareTo(String str1, String str2) {
-        int len = Math.min(str1.length(), str2.length());
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int lim = Math.min(len1, len2);
 
-
-        for (int i = 0; i < len ; i++){
-            if (str1.charAt(i) > str2.charAt(i)){
-                return 1;
+        for (int i = 0; i < lim; i++) {
+            char c1 = str1.charAt(i);
+            char c2 = str2.charAt(i);
+            if (c1 != c2) {
+                return c1 - c2 > 0 ? 1 : -1;
             }
-            if (str1.charAt(i) < str2.charAt(i)){
-                return -1;
-            } 
         }
-        
-        if (str1.length() > str2.length()) {
-                return 1;
-            }
-        if (str1.length() < str2.length()){
-                return -1;
-            }
 
+        if (len1 == len2) {
             return 0;
         }
+        return len1 > len2 ? 1 : -1;
     }
-    
+}
 
+
+
+
+
+
+
+          
