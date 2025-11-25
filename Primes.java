@@ -3,9 +3,11 @@ public class Primes {
         int n;
         if (args.length == 0) {
             n = 7;
-            return;
         }
-        n = Integer.parseInt(args[0]);
+        else {
+            n = Integer.parseInt(args[0]);
+        }
+
         boolean[] isPrime = new boolean[n+1]; 
         for (int i = 2 ; i <= n ; i++){
             isPrime[i] = true;
@@ -25,11 +27,10 @@ public class Primes {
 
         System.out.println("Prime numbers up to " + n + ":");
 
-
         int cnt = 0;
-        for (int i = 2; i <= n; i++) {
-            if (isPrime[i]){
-                System.out.println(i);
+        for (int j = 2; j <= n; j++) {
+            if (isPrime[j]){
+                System.out.println(j);
                 cnt ++;
             }
         }

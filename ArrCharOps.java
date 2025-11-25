@@ -1,26 +1,26 @@
 public class ArrCharOps {
-    // public static void main(String[] args) {
-    //     String str = "clearly";
-    //     char[] arr1 = {'c','l','e','a','r','l','y'};
-    //     char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
-    //     System.out.println(str);  // Prints the string
-    //     println(arr1);            // Prints an array of characters
-    //     System.out.println(charAt(arr1,2));      
-    //     System.out.println(indexOf(arr1,'l'));  
-    //     System.out.println(indexOf(arr1,'l',3)); 
-    //     System.out.println(lastIndexOf(arr1, 'l'));
-    //     System.out.println(concat(arr1, arr2));
-    //     System.out.println(subArray(arr2, 2, 9));
-    //     System.out.println(compareTo("abcd", "abcd"));
-    //     System.out.println(compareTo("abc", "abcd"));
-    //     System.out.println(compareTo("abw", "abcd"));
-    //     System.out.println(compareTo("Abcd", "a"));
-    //     System.out.println(compareTo("apple", "banana"));
-    //     System.out.println(compareTo("apple", "applepie"));
-    //     System.out.println(compareTo("Zoo", "zoo"));
-    //     System.out.println(hashCode(arr1));
-    //     System.out.println(hashCode(arr2));
-    // }
+    public static void main(String[] args) {
+        String str = "clearly";
+        char[] arr1 = {'c','l','e','a','r','l','y'};
+        char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
+        System.out.println(str);  // Prints the string
+        println(arr1);            // Prints an array of characters
+        System.out.println(charAt(arr1,2));      
+        System.out.println(indexOf(arr1,'l'));  
+        System.out.println(indexOf(arr1,'l',3)); 
+        System.out.println(lastIndexOf(arr1, 'l'));
+        System.out.println(concat(arr1, arr2));
+        System.out.println(subArray(arr2, 2, 9));
+        System.out.println(compareTo("abcd", "abcd"));
+        System.out.println(compareTo("abc", "abcd"));
+        System.out.println(compareTo("abw", "abcd"));
+        System.out.println(compareTo("Abcd", "a"));
+        System.out.println(compareTo("apple", "banana"));
+        System.out.println(compareTo("apple", "applepie"));
+        System.out.println(compareTo("Zoo", "zoo"));
+        System.out.println(hashCode(arr1));
+        System.out.println(hashCode(arr2));
+    }
 
 
     public static void println(char[] arr) {
@@ -32,9 +32,6 @@ public class ArrCharOps {
 
  
     public static char charAt(char[] arr, int index) {
-        if (index < 0 || index >= arr.length) {
-        throw new IndexOutOfBoundsException("Index " + index + " is out of bounds for length " + arr.length);
-        }
         return arr[index];
     }
 
@@ -73,6 +70,7 @@ public class ArrCharOps {
     }
 
     public static int lastIndexOf(char[] arr, char ch) {
+        
         for (int i = arr.length - 1; i >= 0 ; i--){
             if (charAt(arr, i) == ch){
                 return i;
@@ -94,10 +92,7 @@ public class ArrCharOps {
 
   
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
-        throw new IndexOutOfBoundsException("Invalid: beginIndex=" + beginIndex + ", endIndex=" + endIndex);
-        }
-        char[] subArry = new char[endIndex - beginIndex];
+        char[] subArry = new char[endIndex - beginIndex +1];
         for (int i = beginIndex; i < endIndex; i++){
             subArry[i - beginIndex] = charAt(arr, i);
         }
@@ -116,36 +111,26 @@ public class ArrCharOps {
 
 
     public static int compareTo(String str1, String str2) {
-        int len1 = str1.length();
-        int len2 = str2.length();
-        int lim = Math.min(len1, len2);
+        int len = Math.min(str1.length(), str2.length());
 
-        for (int i = 0; i < lim ; i++){
-            char c1 = str1.charAt(i);
-            char c2 = str2.charAt(i);
-            if (c1 != c2) {
-                int diff = c1 - c2;
-                if (diff > 0) {
-                    return 1;
-                }
-                else {
-                    return -1;
-                }
+        for (int i = 0; i < len ; i++){
+            if (str1.charAt(i) > str2.charAt(i)){
+                return 1;
+            }
+            if (str1.charAt(i) < str2.charAt(i)){
+                return -1;
             } 
         }
-    
-        int lenDiff = len1 - len2;
-        if (lenDiff > 0) {
-            return 1;
-        }
-        else {
-            if (lenDiff < 0){
-            return -1;
-            }   
-            else {
-            return 0;
+        
+        if (str1.length() > str2.length()) {
+                return 1;
             }
+        if (str1.length() < str2.length()){
+                return -1;
+            }
+
+            return 0;
         }
     }
-    }
+    
 

@@ -27,7 +27,6 @@ public class KeywordsDetector {
                 String keywordLower = keywords[j].toLowerCase();
                 if (sentenceLower.contains(keywordLower)){
                     isBullshit[i] = true;
-                    break;
                 }               
             }
             if (isBullshit[i]){

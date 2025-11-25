@@ -37,15 +37,17 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         int len2 = str2.length();
         boolean contains = false;
-        if (str1.length() >= str2.length()){
-            for (int i = 0; i <= (str1.length() - str2.length()); i++) {
-                String newStr1 = str1.substring(i, i+ len2);
-                if (newStr1.equals(str2)){
-                    contains = true;
-                    break;
+        if (str1 != null && str2 != null){
+            if (str1.length() >= str2.length()){
+                for (int i = 0; i <= (str1.length() - str2.length()); i++) {
+                    String newStr1 = str1.substring(i, i+ len2);
+                    if (newStr1.equals(str2)){
+                        contains = true;
+                        break;
+                    }
                 }
             }
-        }
+    }
         return contains;
     }
 }
