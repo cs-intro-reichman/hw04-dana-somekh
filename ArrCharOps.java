@@ -114,7 +114,7 @@ public class ArrCharOps {
     }
 
     public static int compareTo(String str1, String str2) {
-        if (str1.length() > 0 && str2.length() > 0){
+        if (str1 == null || str2 == null || str1.isEmpty() || str2.isEmpty()){
             int len1 = str1.length();
             int len2 = str2.length();
             int lim = Math.min(len1, len2);
