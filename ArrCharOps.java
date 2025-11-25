@@ -92,12 +92,16 @@ public class ArrCharOps {
 
   
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        char[] subArry = new char[endIndex - beginIndex +1];
+        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
+            return new char[0];
+        }
+        char[] subArry = new char[endIndex - beginIndex];
         for (int i = beginIndex; i < endIndex; i++){
             subArry[i - beginIndex] = charAt(arr, i);
         }
         return subArry;
     }
+    
 
 
     public static long hashCode(char[] arr) {
@@ -112,6 +116,9 @@ public class ArrCharOps {
 
     public static int compareTo(String str1, String str2) {
         int len = Math.min(str1.length(), str2.length());
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+
 
         for (int i = 0; i < len ; i++){
             if (str1.charAt(i) > str2.charAt(i)){
