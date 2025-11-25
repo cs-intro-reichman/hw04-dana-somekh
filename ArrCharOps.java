@@ -117,28 +117,24 @@ public class ArrCharOps {
         int len1 = str1.length();
         int len2 = str2.length();
         int lim = Math.min(len1, len2);
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
 
         for (int i = 0; i < lim; i++) {
             char c1 = str1.charAt(i);
             char c2 = str2.charAt(i);
-            if (c1 != c2) {
-                return c1 - c2 > 0 ? 1 : -1;
+            if (c1 > c2){
+                return 1;
             }
+            if (c1 < c2){
+                return -1;
+            } 
         }
 
-        if (len1 == len2) {
-            return 0;
+        if (len1 > len2){
+           return 1; 
+        } 
+        if (len1 < len2){
+            return -1;
+        } 
+        return 0;
         }
-        return len1 > len2 ? 1 : -1;
     }
-}
-
-
-
-
-
-
-
-          
