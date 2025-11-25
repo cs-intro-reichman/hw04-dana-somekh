@@ -117,6 +117,8 @@ public class ArrCharOps {
         int len1 = str1.length();
         int len2 = str2.length();
         int lim = Math.min(len1, len2);
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
 
         for (int i = 0; i < lim; i++) {
             char c1 = str1.charAt(i);
